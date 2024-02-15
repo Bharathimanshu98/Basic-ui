@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Linking, Image } from 'react-native'
+import { StyleSheet, Text, View, Linking, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 
 const ActionCards = () => {
@@ -16,12 +16,26 @@ const ActionCards = () => {
                 </View>
                 <Image
                     source={{
-                        uri:'https://www.google.com/imgres?imgurl=https%3A%2F%2Fcolorlib.com%2Fwp%2Fwp-content%2Fuploads%2Fsites%2F2%2Fwordpress-blog-themes-2.jpg&tbnid=5VV1eo8CrJCyvM&vet=12ahUKEwiu6pHhr62EAxU6pWMGHd6NBNkQMygEegQIARBY..i&imgrefurl=https%3A%2F%2Fcolorlib.com%2Fwp%2Fbest-personal-blog-wordpress-themes%2F&docid=HfqrvfQAz5iM3M&w=1200&h=928&q=blog%20image%20regarding%20es%2023&ved=2ahUKEwiu6pHhr62EAxU6pWMGHd6NBNkQMygEegQIARBY'
+                        uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQYZoQ2VT3C9LNX620nmKlOpoeLBiD2Snwfg&usqp=CAU'
                     }}
                     style={styles.cardImage}
                 />
                 <View style={styles.bodyContainer}>
-                    {/* Add content for the body of the card here */}
+                    <Text numberOfLines={5}>
+                        As JavaScript continues to evolve, developers like us eagerly anticipate the new features introduced in each ECMAScript update. In this blog, we will take a closer look at some exciting new functionalities of ECMAScript 2023. Let’s explore the latest additions to the JavaScript language.
+                    </Text>
+                </View>
+                <View style={styles.footerContainer}>
+                    <TouchableOpacity
+                        onPress={() => { openWebsite('https://blog.saeloun.com/2023/08/11/2023-ECMAScript-2023-new-features/') }}
+                    >
+                        <Text style={styles.socialLinks} >Read More</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => { openWebsite('https://javascript.plainenglish.io/my-boss-its-2023-you-know-es6-but-why-don-t-you-use-it-c15ccac5a28f') }}
+                    >
+                        <Text style={styles.socialLinks} >Follow me</Text>
+                    </TouchableOpacity>
                 </View>
             </View>
         </View>
@@ -51,21 +65,41 @@ const styles = StyleSheet.create({
         elevation: 5
     },
     elevatedCard: {
-        // Additional styling for the elevated card
+        
     },
     headingContainer: {
-        marginBottom: 10
+        height: 40,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     headerText: {
-        fontSize: 18,
-        fontWeight: 'bold'
+        color: '#000',
+        fontSize: 16,
+        fontWeight: '600'
     },
-    cardImage:{
-        height: 200, // Adjust as per your requirement
+    cardImage: {
+        height: 150, 
         resizeMode: 'cover',
         borderRadius: 8
     },
     bodyContainer: {
-        // Add styles for the body container
+        padding: 10
+    },
+    socialLinks:{
+        fontSize: 16,
+        color: '#000000',
+        backgroundColor: '#FFF',
+        paddingHorizontal: 20,
+        paddingVertical: 6,
+        borderRadius: 6,
+        border:30,
+        backgroundColor:'#3366cc'
+    },
+    footerContainer:{
+        padding: 8,
+        flexDirection: 'row',  // It will align both button in the same row
+        alignItems: 'center',
+        justifyContent: 'space-evenly'
     }
 })
